@@ -7,3 +7,6 @@ This is a helper container built for multi-arch (I needed it for arm64) that con
 1. export `REPO` and `TAG` to suit your needs, e.g. `export REPO=asksven/docker-kubernetes-deploy` and `export TAG=latest`
 1. `make` to build for the different architectures. **Note:** the `Makefile` is for darwin tooling, change it to your needs
  
+## Use
+
+The image can be found [here](https://hub.docker.com/r/asksven/docker-kubernetes-deploy)

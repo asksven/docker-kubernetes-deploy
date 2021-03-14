@@ -6,4 +6,4 @@ RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master
 COPY get-kubectl.sh /
 RUN /get-kubectl.sh
 
-ENTRYPOINT [/bin/bash]
+ENTRYPOINT ['/bin/bash']
