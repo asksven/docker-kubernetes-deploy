@@ -7,9 +7,10 @@ variables:
   # Gitlab namespace with branch name: "namespace-branchname"
   #NAMESPACE: ${CI_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}
   DOCKER_IMAGE_URL: asksven/docker-kubernetes-deploy
+
 stages:
   - build
-#  - test
+  - test
 
 
 # ===========================================
@@ -33,15 +34,15 @@ docker buildx:
   except:
   - schedule
 
-# ===========================================
-#  Test
-# ===========================================
-# trivy container scan:
-#   stage: test
-#   tags:
-#     - asksven-lin-1-public
-#   variables:
-#     TRIVY_IMAGE: ${DOCKER_REGISTRY}/${DOCKER_IMAGE_URL}:${CI_BUILD_REFS_SLUG}
-#   allow_failure: true
+===========================================
+ Test
+===========================================
+trivy container scan:
+  stage: test
+  tags:
+    - asksven-lin-1-public
+  variables:
+    TRIVY_IMAGE: ${DOCKER_REGISTRY}/${DOCKER_IMAGE_URL}:${CI_BUILD_REFS_SLUG}
+  allow_failure: true
 
 
