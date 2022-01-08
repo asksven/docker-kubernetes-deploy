@@ -13,6 +13,6 @@ case $ARCH in
 esac
 
 echo "ARCH is $ARCH"
-curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/${ARCH}/kubectl
+curl -LO https://dl.k8s.io/release/v1.23.1/bin/linux/${ARCH}/kubectl
 chmod +x kubectl
 mv kubectl /usr/local/bin 
