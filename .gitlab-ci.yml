@@ -1,0 +1,47 @@
+include:
+  - project: 'asksven-public/gitlab-ci-templates'
+    ref: master
+    file: '.gitlab-ci-template.yml'
+
+variables:
+  # Gitlab namespace with branch name: "namespace-branchname"
+  #NAMESPACE: ${CI_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}
+  DOCKER_IMAGE_URL: asksven/docker-kubernetes-deploy
+stages:
+  - build
+#  - test
+
+
+# ===========================================
+#  Build the container
+# ===========================================
+lint dockerfile:
+  stage: build
+  tags:
+    - asksven-lin-1-public
+  except:
+    - schedule
+
+docker buildx:
+  stage: build
+  image: docker:19.03.15
+  tags:
+    - asksven-lin-1-public
+  services:
+    - name: docker:19.03.15-dind
+      command: ["--experimental"] 
+  except:
+  - schedule
+
+# ===========================================
+#  Test
+# ===========================================
+# trivy container scan:
+#   stage: test
+#   tags:
+#     - asksven-lin-1-public
+#   variables:
+#     TRIVY_IMAGE: ${DOCKER_REGISTRY}/${DOCKER_IMAGE_URL}:${CI_BUILD_REFS_SLUG}
+#   allow_failure: true
+
+
