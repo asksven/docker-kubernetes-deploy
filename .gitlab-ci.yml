@@ -1,6 +1,6 @@
 include:
   - project: 'asksven-public/gitlab-ci-templates'
-    ref: master
+    ref: no-cache
     file: '.gitlab-ci-template.yml'
 
 variables:
@@ -34,10 +34,7 @@ docker buildx:
   except:
   - schedule
 
-# ===========================================
-#  Test
-# ===========================================
-trivy container scan:
+# trivy container scan:
   stage: test
   tags:
     - asksven-lin-1-public
