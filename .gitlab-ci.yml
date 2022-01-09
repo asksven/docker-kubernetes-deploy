@@ -34,7 +34,10 @@ docker buildx:
   except:
   - schedule
 
-# trivy container scan:
+# ===========================================
+#  Test
+# ===========================================
+trivy container scan:
   stage: test
   tags:
     - asksven-lin-1-public
