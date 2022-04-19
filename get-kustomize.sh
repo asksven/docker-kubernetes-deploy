@@ -13,7 +13,7 @@ case $ARCH in
 esac
 
 echo "ARCH is $ARCH"
-curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v4.4.1/kustomize_v4.4.1_linux_${ARCH}.tar.gz -o kustomize.tar.gz
+curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v4.5.4/kustomize_v4.5.4_linux_${ARCH}.tar.gz -o kustomize.tar.gz
 tar zxvf kustomize.tar.gz
 chmod +x kustomize
 mv kustomize /usr/local/bin

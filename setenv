@@ -1,2 +1,2 @@
 export REPO="asksven/docker-kubernetes-deploy"
-export TAG="v1.3.0"
+export TAG="v1.5.0"
